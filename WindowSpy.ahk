@@ -169,7 +169,7 @@ WinGetTextFast(detect_hidden) {
 	If (Type(controls) = "Array") {
 		static WINDOW_TEXT_SIZE := 32767 ; Defined in AutoHotkey source.
 		
-		buf := BufferAlloc(WINDOW_TEXT_SIZE * 1,0) ; BufferAlloc(WINDOW_TEXT_SIZE * (A_IsUnicode ? 2 : 1),0)
+		buf := Buffer(WINDOW_TEXT_SIZE * 1,0) ; Buffer(WINDOW_TEXT_SIZE * (A_IsUnicode ? 2 : 1),0)
 		
 		text := ""
 		
@@ -205,7 +205,7 @@ UpdateText(vCtl, NewText) {
 }
 
 GetClientSize(hWnd, &w, &h) {
-	rect := BufferAlloc(16,0)
+	rect := Buffer(16,0)
 	; VarSetCapacity(rect, 16)
 	DllCall("GetClientRect", "ptr", hWnd, "ptr", rect.ptr)
 	w := NumGet(rect, 8, "int"), h := NumGet(rect, 12, "int")
@@ -215,7 +215,7 @@ WinToClient(hWnd, &x, &y) {
     WinGetPos &wX, &wY,,, "ahk_id " hWnd
 	If (wX != "" And wY != "") {
 		x += wX, y += wY
-		pt := BufferAlloc(8,0)
+		pt := Buffer(8,0)
 		; VarSetCapacity(pt, 8)
 		
 		NumPut "Int", x, pt
