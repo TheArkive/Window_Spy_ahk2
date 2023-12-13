@@ -21,7 +21,7 @@ WinSpyGui() {
     oGui.Add("Text",,"Window Title, Class and Process:")
     oGui.Add("Checkbox","yp xp+200 w120 Right vCtrl_FollowMouse","Follow Mouse").Value := 1
     oGui.Add("Edit","xm w320 r5 ReadOnly -Wrap vCtrl_Title")
-    oGui.Add("Text",,"Mouse Position")
+    oGui.Add("Text",,"Mouse Position:")
     oGui.Add("Edit","w320 r4 ReadOnly vCtrl_MousePos")
     oGui.Add("Text","w320 vCtrl_CtrlLabel",(txtFocusCtrl := "Focused Control") ":")
     oGui.Add("Edit","w320 r4 ReadOnly vCtrl_Ctrl")
